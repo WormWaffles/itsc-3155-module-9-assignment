@@ -35,11 +35,16 @@ def create_movie():
 def search_movies():
     # TODO: Feature 3
     search_movie = str(request.form.get("form_search"))
-    if search_movie:
-        search = movie_repository.get_movie_by_title(search_movie)
+    if search_movie == None:
+        #need to work on if statement
+        movie = movie_repository.get_movie_by_title(search_movie)
+        #gets movie in search form
+        get_single_movie(movie.movie_id)
+        #passes searched movie in to the get single movie function to display that movie
     else:
-        search = movie_repository.get_all_movies()
-    return render_template('search_movies.html', search_active=True,search=search)
+        #tells us we couldnt find it if it is not there
+        notFound = "<H1> Couldn't find that </H1>"
+        return render_template('search_movies.html', search_active=True,notFound=notFound)
 
 
 @app.get('/movies/<int:movie_id>')
