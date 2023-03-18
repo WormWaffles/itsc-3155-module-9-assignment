@@ -6,6 +6,7 @@ app = Flask(__name__)
 
 # Get the movie repository singleton to use throughout the application
 movie_repository = get_movie_repository()
+movie_repository.create_movie("The Matrix", "Keanu Reeves", 4)
 
 
 @app.get('/')
@@ -37,8 +38,17 @@ def create_movie():
 
 @app.get('/movies/search')
 def search_movies():
-    # TODO: Feature 3
-    return render_template('search_movies.html', search_active=True)
+    # TODO: Feature 3 [DONE]
+    movie = None
+    #get the form data
+    search_movie = request.args.get('form_search')
+    if movie_repository.get_movie_by_title(search_movie):
+        movie = movie_repository.get_movie_by_title(search_movie)
+        return render_template('search_movies.html', search_active=True, movie=movie)
+    elif search_movie == None:
+        return render_template('search_movies.html', search_active=False, movie=movie)
+    else:
+        return render_template('search_movies.html', search_active=True, movie=None)
 
 
 @app.get('/movies/<int:movie_id>')
