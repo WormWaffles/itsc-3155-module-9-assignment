@@ -6,7 +6,6 @@ app = Flask(__name__)
 
 # Get the movie repository singleton to use throughout the application
 movie_repository = get_movie_repository()
-movie_repository.create_movie("The Matrix", "Keanu Reeves", 4)
 
 
 @app.get('/')
