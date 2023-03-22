@@ -9,12 +9,17 @@
 <table class="table table-striped">
     <tr>
         <th>Title</th>
-        <th>Edit</th>
-        <th>Delete</th>
+        <th>Director</th>
+        <th>Rating</th>
+        <th></th>
+        <th></th>
     </tr>
     
     <tr>
         <td>{{ movie.title }}</td>
+        <td>{{ movie.director }}</td>
+        <td>{{ movie.rating }}</td>
+
         
         <td>
             <form action="/movies/{{ movie.movie_id }}" method="post"> 
