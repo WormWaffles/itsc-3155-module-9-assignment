@@ -76,13 +76,12 @@ def update_movie(movie_id: int):
     # if movie_repository.get_movie_by_id(movie_id):
     title = request.form.get('movie-name')
     director = request.form.get('director')
-    rating = int(request.form.get('rating'))
-    try:
-        update_movie = movie_repository.update_movie(movie_id,title,director,rating)
-    except ValueError as Ve:
-        return str(Ve), 404
-    return f"Update movie: {update_movie.title} (director: {update_movie.director}, rating: {update_movie.rating})"
-
+    rating = (request.form.get('rating'))
+    # try:
+    update_movie = movie_repository.update_movie(movie_id,title,director,rating)
+    # except ValueError as Ve:
+        # return str(Ve), 404
+    # return f"Update movie: {update_movie.title} (director: {update_movie.director}, rating: {update_movie.rating})"
     return redirect(f'/movies/{movie_id}')
 
 
