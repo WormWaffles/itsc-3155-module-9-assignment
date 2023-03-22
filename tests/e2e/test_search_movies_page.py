@@ -1,4 +1,3 @@
-from flask.testing import FlaskClient
 from app import app
 from src.repositories.movie_repository import get_movie_repository
 # TODO: Feature 3
