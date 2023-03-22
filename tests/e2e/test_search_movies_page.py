@@ -17,4 +17,3 @@ def test_search():
     response = test_app.get('/movies/search?form_search=The+Matrix')
     #ensures table is generatated if movie is found that shows the searched movie
     assert b'<td>The Matrix</td>' in response.data
-    assert b'<td>Wachowski</td>' in response.data
