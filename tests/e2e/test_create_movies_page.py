@@ -32,6 +32,9 @@ def test_create_movie_form():
     assert response.status_code == 200
     assert b'<td colspan="3">No movies found</td>' in response.data
 
+    #Clear database
+    movie_repository.clear_db()
+
     
     
 # RESOURCES: 
