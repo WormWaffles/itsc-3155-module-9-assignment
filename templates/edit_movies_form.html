@@ -18,9 +18,9 @@
     <input type="text"class="form-control" id="director" name="director"  value="{{ movie.director }}" >
 </div>
 <div class="mb-3">
-    <label for="rating" class="form-label">Rating</label>
-    <select class="form-select" id="rating" name="rating" required>
-        <option selected disabled value="">Select New Rating Currently:  {{ movie.rating }}   </option>
+    <label for="rating" class="form-label" >Rating</label>
+    <select class="form-select" id="rating" name="rating" >
+        <option selected value="{{ movie.rating }}"> {{ movie.rating }} </option>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
