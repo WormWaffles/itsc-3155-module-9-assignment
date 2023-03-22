@@ -33,7 +33,7 @@ def test_create_movie_form():
     assert b'<td colspan="3">No movies found</td>' in response.data
 
     #Clear database
-    movie_repository.clear_db()
+    movie_repository.clear_db() 
 
     
     
