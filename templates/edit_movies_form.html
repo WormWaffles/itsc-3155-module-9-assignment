@@ -20,12 +20,11 @@
 <div class="mb-3">
     <label for="rating" class="form-label" >Rating</label>
     <select class="form-select" id="rating" name="rating" >
-        <option selected value="{{ movie.rating }}"> {{ movie.rating }} </option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
+        <option {{ 'selected' if movie.rating == 1 else '' }} value="1">1</option>
+        <option {{ 'selected' if movie.rating == 2 else '' }} value="2">2</option>
+        <option {{ 'selected' if movie.rating == 3 else '' }} value="3">3</option>
+        <option {{ 'selected' if movie.rating == 4 else '' }} value="4">4</option>
+        <option {{ 'selected' if movie.rating == 5 else '' }} value="5">5</option>
     </select>
 </div>
 <button type="submit" class="btn btn-dark">Save Movie</button>
