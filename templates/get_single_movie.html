@@ -9,15 +9,18 @@
 <table class="table table-striped">
     <tr>
         <th>Title</th>
+        <th>Director</th>
+        <th>Rating</th>
         <th>Edit</th>
         <th>Delete</th>
     </tr>
     
     <tr>
         <td>{{ movie.title }}</td>
-        
+        <td>{{ movie.director }}</td>
+        <td>{{ movie.rating }}</td>
         <td>
-            <form action="/movies/{{ movie.movie_id }}" method="post"> 
+            <form action="/movies/{{ movie.movie_id }}/edit" method="get"> 
               <button type="submit" class="btn btn-success" name="edit" value="edit">Edit</button> 
             </form>
         </td>
