@@ -36,7 +36,6 @@ def create_movie():
     return redirect('/movies')
 
 
-
 @app.get('/movies/search')
 def search_movies():
     # TODO: Feature 3 [DONE]
@@ -74,9 +73,3 @@ def update_movie(movie_id: int):
 def delete_movie(movie_id: int):
     # TODO: Feature 6
     pass
-
-class Movie:
-    def __init__(self, name, director, rating):
-        self.name = name
-        self.director = director
-        self.rating = rating
