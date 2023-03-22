@@ -70,7 +70,7 @@ def get_edit_movies_page(movie_id: int):
 def update_movie(movie_id: int):
     # TODO: Feature 5
     # After updating the movie in the database, we redirect back to that single movie page
-    title = request.form.get('movie-name') or None
+    title = request.form.get('title') or None
     director = request.form.get('director') or None
     rating = int(request.form.get('rating', 0))
     if title != None and director != None and rating >= 0 and rating <= 5:
