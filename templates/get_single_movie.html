@@ -11,23 +11,21 @@
         <th>Title</th>
         <th>Director</th>
         <th>Rating</th>
-        <th></th>
-        <th></th>
+        <th>Edit</th>
+        <th>Delete</th>
     </tr>
     
     <tr>
         <td>{{ movie.title }}</td>
         <td>{{ movie.director }}</td>
         <td>{{ movie.rating }}</td>
-
-        
         <td>
-            <form action="/movies/{{ movie.movie_id }}" method="post"> 
+            <form action="/movies/{{ movie.movie_id }}/edit" method="get"> 
               <button type="submit" class="btn btn-success" name="edit" value="edit">Edit</button> 
             </form>
         </td>
         <td>
-            <form action="/delete" method="post"> 
+            <form action="/movies/{{ movie.movie_id }}/delete" method="post"> 
               <button type="submit" class="btn btn-danger" name="delete" value="delete">Delete</button> 
             </form>
         </td>
