@@ -9,15 +9,15 @@
 <form action="/movies" method="post" name="movie_form">
     <div class="mb-3">
         <label for="title" class="form-label">Movie Name</label>
-        <input type="text" class="form-control" id="title" name="title" placeholder="Enter Movie Name" >
+        <input type="text" class="form-control" id="title" name="title" placeholder="Enter Movie Name" required>
     </div>
     <div class="mb-3">
         <label for="director" class="form-label">Director</label>
-        <input type="text"class="form-control" id="director" name="director" placeholder="Enter Director" >
+        <input type="text"class="form-control" id="director" name="director" placeholder="Enter Director" required>
     </div>
     <div class="mb-3">
         <label for="rating" class="form-label">Rating</label>
-        <select class="form-select" id="rating" name="rating">
+        <select class="form-select" id="rating" name="rating" required>
             <option selected disabled value="">Select rating</option>
             <option value="1">1</option>
             <option value="2">2</option>
