@@ -3,6 +3,25 @@
 {% block title %}Movie Rating App | Movie{% endblock %}
 
 {% block body %}
-<h1 class="mb-5"></h1>
+<h1 class="mb-5">View</h1>
 <!-- TODO: Feature 4 -->
+<!--Jai added below-->
+{% if not search_active %}
+    <p class="mb-3">Search for a movie rating below</p>
+    <form action="/movies/view" method="GET">
+        <input type="view" name="form_view" placeholder="ViewMovie">
+        <button type="submit">View</button>
+    </form>
+{% else %}
+
+
+
+
+
+
+
+
+
+
+
 {% endblock %}

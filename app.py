@@ -50,9 +50,12 @@ def search_movies():
         return render_template('search_movies.html', search_active=True, movie=None)
 
 
-@app.get('/movies/<int:movie_id>')
+
+
+#Where Jai's at*********************
+@app.get('/movies/view>') #'/movies/<int:movie_id>'
 def get_single_movie(movie_id: int):
-    # TODO: Feature 4.......
+    # TODO: Feature 4.......   
 
 
 
@@ -61,7 +64,14 @@ def get_single_movie(movie_id: int):
 
 @app.get('/movies/<int:movie_id>/edit')
 def get_edit_movies_page(movie_id: int):
+
+
+
+    
     return render_template('edit_movies_form.html')
+
+#**************************
+
 
 
 @app.post('/movies/<int:movie_id>')
