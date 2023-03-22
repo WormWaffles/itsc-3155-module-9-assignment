@@ -6,4 +6,30 @@
 <h1 class="mb-5">View</h1>
 <!-- TODO: Feature 4 -->
 <!-- Use the movie variable passed from app.py to display the signle movie information. -->
+<table class="table table-striped">
+    <tr>
+        <th>Title</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    
+    <tr>
+        <td>{{ movie.title }}</td>
+        
+        <td>
+            <form action="/movies/<int:movie_id> " method="post"> 
+              <button type="submit" class="btn btn-success" name="edit" value="edit">Edit</button> 
+            </form>
+        </td>
+        <td>
+            <form action="/delete" method="post"> 
+              <button type="submit" class="btn btn-danger" name="delete" value="delete">Delete</button> 
+            </form>
+        </td>
+        
+    </tr>
+</table>
+
+
+
 {% endblock %}
