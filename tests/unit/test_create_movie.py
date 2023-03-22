@@ -1,7 +1,7 @@
 from app import app
 from src.repositories.movie_repository import get_movie_repository
 
-# TODO: Feature 2
+# TODO: Feature 2 [DONE]
 def test_create_movie():
     movie_repository = get_movie_repository()
     movie_repository.clear_db()
