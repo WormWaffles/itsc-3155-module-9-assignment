@@ -2,8 +2,7 @@ from app import app
 from src.repositories.movie_repository import get_movie_repository
 
 # TODO: Feature 2 [DONE]
-
-def test_create_movie():
+def test_create_movie_form():
     #Test no data is posted before submit button is pressed
     movie_repository = get_movie_repository()
     movie_repository.clear_db()
