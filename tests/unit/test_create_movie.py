@@ -23,3 +23,6 @@ def test_create_movie():
     assert movie2.title == 'The Darjeeling Limited'
     assert movie2.director == 'Wes Anderson'
     assert movie2.rating == 4
+
+     #Clear database
+    movie_repository.clear_db()

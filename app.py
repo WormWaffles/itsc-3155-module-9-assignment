@@ -5,6 +5,7 @@ from src.repositories.movie_repository import get_movie_repository
 app = Flask(__name__)
 
 # Get the movie repository singleton to use throughout the application
+movie_list = {}
 movie_repository = get_movie_repository()
 
 
@@ -34,6 +35,8 @@ def create_movie():
     if title != None and director != None and rating >= 0 and rating <= 5:
         movie_repository.create_movie(title, director, rating)
     return redirect('/movies')
+
+
 
 @app.get('/movies/search')
 def search_movies():
@@ -72,3 +75,9 @@ def update_movie(movie_id: int):
 def delete_movie(movie_id: int):
     # TODO: Feature 6
     pass
+
+class Movie:
+    def __init__(self, name, director, rating):
+        self.name = name
+        self.director = director
+        self.rating = rating
