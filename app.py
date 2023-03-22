@@ -72,7 +72,7 @@ def update_movie(movie_id: int):
     # After updating the movie in the database, we redirect back to that single movie page
     title = request.form.get('title') or None
     director = request.form.get('director') or None
-    rating = int(request.form.get('rating', 0))
+    rating = int(request.form.get('rating',0))
     if title != None and director != None and rating >= 0 and rating <= 5:
         movie_repository.update_movie(movie_id,title,director,rating)
     return redirect(f'/movies/{movie_id}')
