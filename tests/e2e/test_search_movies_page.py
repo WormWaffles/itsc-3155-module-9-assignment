@@ -1,5 +1,6 @@
 from flask.testing import FlaskClient
 from app import app
+from src.repositories.movie_repository import get_movie_repository
 # TODO: Feature 3
 
 def test_search():
@@ -11,7 +12,9 @@ def test_search():
     response = test_app.get('/movies/search?form_search=Pulp+Fiction')
     ##Test that page shows no movie is movie is not there
     assert b'<p>Movie not found.</p>' in response.data
+    movie_repository = get_movie_repository()
+    movie_repository.create_movie('The Matrix', 'Wachowski', 5)
     response = test_app.get('/movies/search?form_search=The+Matrix')
     #ensures table is generatated if movie is found that shows the searched movie
-    assert b'<th>Rating</th>' in response.data
-
+    assert b'<td>The Matrix</td>' in response.data
+    assert b'<td>Wachowski</td>' in response.data
