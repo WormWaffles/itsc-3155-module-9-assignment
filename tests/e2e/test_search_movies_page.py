@@ -14,5 +14,7 @@ def test_search():
     movie_repository = get_movie_repository()
     movie_repository.create_movie('The Matrix', 'Wachowski', 5)
     response = test_app.get('/movies/search?form_search=The+Matrix')
-    #ensures table is generatated if movie is found that shows the searched movie
+    #ensures table is generatated if movie is found that shows the searched movie while also showing the full movie and rating and director
     assert b'<td>The Matrix</td>' in response.data
+    assert b'<td>Wachowski</td>' in response.data
+    assert b'<td>5</td>' in response.data
