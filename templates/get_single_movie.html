@@ -17,7 +17,7 @@
         <td>{{ movie.title }}</td>
         
         <td>
-            <form action="/movies/<int:movie_id> " method="post"> 
+            <form action="/movies/{{ movie.movie_id }}" method="post"> 
               <button type="submit" class="btn btn-success" name="edit" value="edit">Edit</button> 
             </form>
         </td>
