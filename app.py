@@ -8,6 +8,9 @@ app = Flask(__name__)
 movie_repository = get_movie_repository()
 movie_repository.create_movie("The movie", "Keanu Reeves", 4)
 
+# sample movie to be taken out later
+movie_repository.create_movie('The Matrix', 'The Wachowski Brothers', 5)
+
 
 @app.get('/')
 def index():
@@ -29,12 +32,13 @@ def create_movies_form():
 def create_movie():
     # TODO: Feature 2 [DONE]
     # After creating the movie in the database, we redirect to the list all movies page
-    title = request.form.get('movie-name')
-    director = request.form.get('director')
-    rating = int(request.form.get('rating'))
-    # create_movie(title, director, rating)
-    movie_repository.create_movie(title, director, rating)
+    title = request.form.get('title') or None
+    director = request.form.get('director') or None
+    rating = int(request.form.get('rating', 0))
+    if title != None and director != None and rating >= 0 and rating <= 5:
+        movie_repository.create_movie(title, director, rating)
     return redirect('/movies')
+
 
 @app.get('/movies/search')
 def search_movies():
@@ -50,16 +54,17 @@ def search_movies():
     else:
         return render_template('search_movies.html', search_active=True, movie=None)
 
-
 @app.get('/movies/<int:movie_id>')
 def get_single_movie(movie_id: int):
-    # TODO: Feature 4
-    return render_template('get_single_movie.html')
+    # TODO: Feature 4 
+    movie = movie_repository.get_movie_by_id(movie_id)
+    return render_template('get_single_movie.html', movie=movie)
 
 
 @app.get('/movies/<int:movie_id>/edit')
 def get_edit_movies_page(movie_id: int):
-    return render_template('edit_movies_form.html')
+    movie = movie_repository.get_movie_by_id(movie_id)
+    return render_template('edit_movies_form.html', movie=movie)
 
 
 @app.post('/movies/<int:movie_id>')
