@@ -8,7 +8,7 @@
 <!-- TODO: Feature 5 -->
 <h1 class="mb-5">Edit Movie: " {{ movie.title }} "</h1>
 
-<form method="POST" action="/movies/{{ movie.movie_id }}">
+<form method="POST" action="/movies/{{ movie.movie_id }}" >
     <div class="mb-3">
         <label for="title" class="form-label">Movie Name</label>
         <input type="text" class="form-control" id="title" name="title" value="{{ movie.title }}"  >
